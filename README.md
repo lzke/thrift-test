@@ -177,3 +177,37 @@ python PythonClient.py
 > FYI the answer is 0
 > 15-10=5
 > Check log: 5
+
+### Java(Server) & JavaScript(Client)
+
+| Java | Ant     |
+| ---- | ------- |
+| 8    | 1.10.12 |
+
+```
+thrift.exe -r --gen java --o java tutorial.thrift
+thrift.exe -r --gen js --o js tutorial.thrift
+```
+
+```
+cd js
+```
+
+```
+ant tutorialserver
+```
+
+> Buildfile: thrift-test\tutorial\js\build.xml
+> 
+> init:
+>     [mkdir] Created dir: thrift-test\tutorial\js\build
+> 
+> compile:
+> 
+> tutorial:
+> 
+> generate:
+> 
+> tutorialserver:
+>      [java] Listening on port 8088
+>      [java] Point your browser to http://localhost:8088/tutorial/js/tutorial.html   

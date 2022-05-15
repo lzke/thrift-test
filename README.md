@@ -178,15 +178,15 @@ python PythonClient.py
 > Check log: 5
 ```
 
-### Java(Server) & JavaScript(Client)
+### JavaScript(Client) & Java(Server)
 
 | Java | Ant     |
 | ---- | ------- |
 | 8    | 1.10.12 |
 
 ```
-thrift.exe -r --gen java --o java tutorial.thrift
 thrift.exe -r --gen js --o js tutorial.thrift
+thrift.exe -r --gen java --o java tutorial.thrift
 ```
 
 ```
@@ -210,4 +210,46 @@ ant tutorialserver
 > tutorialserver:
 >      [java] Listening on port 8088
 >      [java] Point your browser to http://localhost:8088/tutorial/js/tutorial.html
+```
+
+## Demo
+
+```
+cd demo
+```
+
+### JavaScript(Client) & Nodejs(Server)
+
+| Node.js  |
+| -------- |
+| v16.15.0 |
+
+```
+thrift.exe -r --gen js --gen js:node --o js-nodejs hello.thrift
+```
+
+```
+cd js-nodejs
+```
+
+```
+npm install
+```
+
+```
+node hello.js
+
+> Http/Thrift Server running on port: 8585
+> Client call: 1
+> Client call: 25
+```
+
+```
+open hello.html with browser
+
+click [Get Message from Node Server]
+> Server Response: Hello Apache Thrift for JavaScript 1
+
+click [Double 25]
+> Server Dbl: 50
 ```

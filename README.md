@@ -60,9 +60,9 @@ ant tutorial
 
 ### Node.js
 
-| Node.js  | Ant     |
-| -------- | ------- |
-| v16.15.0 | 1.10.12 |
+| Node.js  |
+| -------- |
+| v16.15.0 |
 
 ```
 thrift.exe -r --gen js:node --o nodejs tutorial.thrift
@@ -84,5 +84,34 @@ node NodeClient.js
 > ping()
 > 1+1=2
 > InvalidOperation InvalidOperation: InvalidOperation
+> 15-10=5
+> Check log: 5
+
+### Python
+
+| Python |
+| ------ |
+| 3.10.4 |
+
+```
+thrift.exe -r --gen py --o py tutorial.thrift
+```
+
+```
+cd py
+```
+
+```
+pip install -r requirements.txt
+```
+
+```
+python PythonServer.py
+python PythonClient.py
+```
+
+> ping()
+> 1+1=2
+> InvalidOperation: InvalidOperation(whatOp=4, why='Cannot divide by 0')
 > 15-10=5
 > Check log: 5

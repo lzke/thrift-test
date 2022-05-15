@@ -28,7 +28,6 @@ cd java
 
 ```
 ant tutorial
-```
 
 > Buildfile: thrift-test\tutorial\java\build.xml
 > 
@@ -57,6 +56,7 @@ ant tutorial
 > 
 > BUILD SUCCESSFUL
 > Total time: 12 seconds
+```
 
 ### Node.js
 
@@ -78,23 +78,23 @@ npm install
 
 ```
 node NodeServer.js
-```
 
 > ping()
 > add( 1 , 1 )
 > calculate( 1 , { num1: 1, num2: 0, op: 4, comment: null } )
 > calculate( 1 , { num1: 15, num2: 10, op: 2, comment: null } )
 > getStruct( 1 )
+```
 
 ```
 node NodeClient.js
-```
 
 > ping()
 > 1+1=2
 > InvalidOperation InvalidOperation: InvalidOperation
 > 15-10=5
 > Check log: 5
+```
 
 ### Python
 
@@ -116,7 +116,6 @@ pip install -r requirements.txt
 
 ```
 python PythonServer.py
-```
 
 > Starting the server...
 > ping()
@@ -124,16 +123,17 @@ python PythonServer.py
 > calculate(1, Work(num1=1, num2=0, op=4, comment=None))
 > calculate(1, Work(num1=15, num2=10, op=2, comment=None))
 > getStruct(1)
+```
 
 ```
 python PythonClient.py
-```
 
 > ping()
 > 1+1=2
 > InvalidOperation: InvalidOperation(whatOp=4, why='Cannot divide by 0')
 > 15-10=5
 > Check log: 5
+```
 
 ### Python(Twisted)
 
@@ -155,7 +155,6 @@ pip install -r requirements.txt
 
 ```
 python PythonServer.py
-```
 
 > ping()
 > add(1,1)
@@ -166,10 +165,10 @@ python PythonServer.py
 > tutorial.ttypes.InvalidOperation: InvalidOperation(whatOp=4, why='Cannot divide by 0')
 > calculate(1, Work(num1=15, num2=10, op=2, comment=None))
 > getStruct(1)
+```
 
 ```
 python PythonClient.py
-```
 
 > ping()
 > 1+1=2
@@ -177,6 +176,7 @@ python PythonClient.py
 > FYI the answer is 0
 > 15-10=5
 > Check log: 5
+```
 
 ### Java(Server) & JavaScript(Client)
 
@@ -195,7 +195,6 @@ cd js
 
 ```
 ant tutorialserver
-```
 
 > Buildfile: thrift-test\tutorial\js\build.xml
 > 
@@ -210,4 +209,5 @@ ant tutorialserver
 > 
 > tutorialserver:
 >      [java] Listening on port 8088
->      [java] Point your browser to http://localhost:8088/tutorial/js/tutorial.html   
+>      [java] Point your browser to http://localhost:8088/tutorial/js/tutorial.html
+```

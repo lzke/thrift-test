@@ -78,6 +78,15 @@ npm install
 
 ```
 node NodeServer.js
+```
+
+> ping()
+> add( 1 , 1 )
+> calculate( 1 , { num1: 1, num2: 0, op: 4, comment: null } )
+> calculate( 1 , { num1: 15, num2: 10, op: 2, comment: null } )
+> getStruct( 1 )
+
+```
 node NodeClient.js
 ```
 
@@ -107,11 +116,64 @@ pip install -r requirements.txt
 
 ```
 python PythonServer.py
+```
+
+> Starting the server...
+> ping()
+> add(1,1)
+> calculate(1, Work(num1=1, num2=0, op=4, comment=None))
+> calculate(1, Work(num1=15, num2=10, op=2, comment=None))
+> getStruct(1)
+
+```
 python PythonClient.py
 ```
 
 > ping()
 > 1+1=2
 > InvalidOperation: InvalidOperation(whatOp=4, why='Cannot divide by 0')
+> 15-10=5
+> Check log: 5
+
+### Python(Twisted)
+
+| Python | Twisted |
+| ------ | ------- |
+| 3.10.4 | 22.4.0  |
+
+```
+thrift.exe -r --gen py:twisted --o py.twisted tutorial.thrift
+```
+
+```
+cd py.twisted
+```
+
+```
+pip install -r requirements.txt
+```
+
+```
+python PythonServer.py
+```
+
+> ping()
+> add(1,1)
+> calculate(1, Work(num1=1, num2=0, op=4, comment=None))
+> Traceback (most recent call last):
+>   File "D:\WORKSPACE\thrift-test\tutorial\py.twisted\PythonServer.py", line 68, in calculate
+>     raise InvalidOperation(work.op, 'Cannot divide by 0')
+> tutorial.ttypes.InvalidOperation: InvalidOperation(whatOp=4, why='Cannot divide by 0')
+> calculate(1, Work(num1=15, num2=10, op=2, comment=None))
+> getStruct(1)
+
+```
+python PythonClient.py
+```
+
+> ping()
+> 1+1=2
+> Whoa? You know how to divide by zero?
+> FYI the answer is 0
 > 15-10=5
 > Check log: 5

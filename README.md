@@ -237,7 +237,7 @@ npm install
 ```
 
 ```
-node hello.js
+node NodeServer.js
 
 > Http/Thrift Server running on port: 8585
 > Client call: 1
@@ -252,4 +252,37 @@ click [Get Message from Node Server]
 
 click [Double 25]
 > Server Dbl: 50
+```
+
+### Node.js(Client) & Python(Server)
+
+| Node.js  | Python |
+| -------- | ------ |
+| v16.15.0 | 3.10.4 |
+
+```
+thrift.exe -r --gen js:node --gen py --o nodejs-py hello.thrift
+```
+
+```
+cd nodejs-py
+```
+
+```
+pip install -r requirements.txt
+npm install
+```
+
+```
+python PythonServer.py
+
+> Python server running on port 8585
+> Hello Called
+> 127.0.0.1 - - [16/May/2022 22:23:45] "POST /hello HTTP/1.1" 200 -
+```
+
+```
+node NodeClient.js
+
+> Msg from server: hello from Python
 ```

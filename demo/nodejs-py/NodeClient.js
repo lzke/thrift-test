@@ -1,21 +1,32 @@
 const thrift = require("thrift");
 const helloSvc = require("./gen-nodejs/HelloSvc.js");
+const timesTwo = require("./gen-nodejs/TimesTwo.js");
 
-const options = {
-  transport: thrift.TBufferedTransport,
-  protocol: thrift.TJSONProtocol,
-  path: "/hello",
-  headers: { Connection: "close" },
-  https: false
-};
 
-const connection = thrift.createHttpConnection("localhost", 8585, options);
-const client = thrift.createHttpClient(helloSvc, connection);
+const multiplexer = new thrift.Multiplexer();
 
-connection.on("error", function(err) {
+
+const helloSvcOptions = { transport: thrift.TBufferedTransport, protocol: thrift.TJSONProtocol };
+const helloSvcConnection = thrift.createHttpConnection("localhost", 8585, helloSvcOptions);
+const helloSvcClient = multiplexer.createClient("hello", helloSvc, helloSvcConnection);
+
+helloSvcConnection.on("error", function(err) {
   console.log("Error: " + err);
 });
 
-client.hello_func(function(error, result) {
+helloSvcClient.hello_func(function(error, result) {
   console.log("Msg from server: " + result);
+});
+
+
+const timesTwoOptions = { transport: thrift.TBufferedTransport, protocol: thrift.TJSONProtocol };
+const timesTwoConnection = thrift.createHttpConnection("localhost", 8585, timesTwoOptions);
+const timesTwoClient = multiplexer.createClient("dbl", timesTwo, timesTwoConnection);
+
+timesTwoConnection.on("error", function(err) {
+  console.log("Error: " + err);
+});
+
+timesTwoClient.dbl(25, function(error, result) {
+  console.log(result);
 });

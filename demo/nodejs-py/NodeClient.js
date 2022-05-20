@@ -1,4 +1,6 @@
 const thrift = require("thrift");
+const Int64 = require('node-int64');
+
 const helloSvc = require("./gen-nodejs/HelloSvc.js");
 const timesTwo = require("./gen-nodejs/TimesTwo.js");
 
@@ -29,4 +31,5 @@ timesTwoConnection.on("error", function(err) {
 
 timesTwoClient.dbl(25, function(error, result) {
   console.log(result);
+  console.log(result.toNumber(true));
 });

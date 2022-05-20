@@ -277,15 +277,16 @@ npm install
 python PythonServer.py
 
 > Python server running on port 8585
-> Hello Called
-> 127.0.0.1 - - [16/May/2022 22:23:45] "POST /hello HTTP/1.1" 200 -
 > Client call: 25
-> 127.0.0.1 - - [17/May/2022 23:34:54] "POST / HTTP/1.1" 200 -
+> Hello Called
+> 127.0.0.1 - - [20/May/2022 15:22:47] "POST / HTTP/1.1" 200 -
+> 127.0.0.1 - - [20/May/2022 15:22:47] "POST / HTTP/1.1" 200 -
 ```
 
 ```
 node NodeClient.js
 
-> Msg from server: hello from Python
 > { buffer: <Buffer 00 00 00 00 00 00 00 32>, offset: 0 }
+> 50
+> Msg from server: hello from Python
 ```

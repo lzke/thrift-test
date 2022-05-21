@@ -298,11 +298,11 @@ node NodeClient.js
 | 3.10.4 | 2.1.2 |
 
 ```
-thrift.exe -r --gen js --gen py --o js-py hello.thrift
+thrift.exe -r --gen js --gen py --o js-py.flask hello.thrift
 ```
 
 ```
-cd js-py
+cd js-py.flask
 ```
 
 ```

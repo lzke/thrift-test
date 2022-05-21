@@ -7,7 +7,6 @@ const timesTwo = require("./gen-nodejs/TimesTwo.js");
 
 const multiplexer = new thrift.Multiplexer();
 
-
 const helloSvcOptions = { transport: thrift.TBufferedTransport, protocol: thrift.TJSONProtocol };
 const helloSvcConnection = thrift.createHttpConnection("localhost", 8585, helloSvcOptions);
 const helloSvcClient = multiplexer.createClient("hello", helloSvc, helloSvcConnection);

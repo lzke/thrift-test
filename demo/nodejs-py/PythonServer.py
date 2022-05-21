@@ -1,10 +1,11 @@
 import sys
-sys.path.append("gen-py")
 
-from hello import HelloSvc, TimesTwo
 from thrift.TMultiplexedProcessor import TMultiplexedProcessor
 from thrift.protocol import TJSONProtocol
 from thrift.server import THttpServer
+
+sys.path.append("gen-py")
+from hello import HelloSvc, TimesTwo
 
 
 class HelloSvcHandler:

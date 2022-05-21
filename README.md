@@ -290,3 +290,53 @@ node NodeClient.js
 > 50
 > Msg from server: hello from Python
 ```
+
+### JavaScript(Client) & Python(Flask Server)
+
+| Python | Flask |
+| ------ | ----- |
+| 3.10.4 | 2.1.2 |
+
+```
+thrift.exe -r --gen js --gen py --o js-py hello.thrift
+```
+
+```
+cd js-py
+```
+
+```
+pip install -r requirements.txt
+```
+
+```
+python FlaskServer.py
+
+> * Serving Flask app 'FlaskServer' (lazy loading)
+> * Environment: production
+>   WARNING: This is a development server. Do not use it in a production deployment.
+>   Use a production WSGI server instead.
+> * Debug mode: on
+> * Running on http://localhost:8585 (Press CTRL+C to quit)
+> * Restarting with stat
+> * Debugger is active!
+> * Debugger PIN: 704-412-122
+>   127.0.0.1 - - [21/May/2022 09:04:59] "OPTIONS / HTTP/1.1" 200 -
+>   b'[1,"hello:hello_func",1,0,{}]'
+>   Hello Called
+>   127.0.0.1 - - [21/May/2022 09:04:59] "POST / HTTP/1.1" 200 -
+>   127.0.0.1 - - [21/May/2022 09:05:01] "OPTIONS / HTTP/1.1" 200 -
+>   b'[1,"dbl:dbl",1,0,{"1":{"i64":25}}]'
+>   Client call: 25
+>   127.0.0.1 - - [21/May/2022 09:05:01] "POST / HTTP/1.1" 200 -
+```
+
+```
+open hello.html with browser
+
+click [Get Message from Node Server]
+> Server Response: hello from Python Flask
+
+click [Double 25]
+> Server Dbl: 50
+```
